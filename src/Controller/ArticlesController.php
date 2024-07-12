@@ -12,11 +12,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route('/articles')]
 class ArticlesController extends AbstractController
 {
-    #[Route('/', name: 'app_articles_index', methods: ['GET'])]
-    public function index(ArticlesRepository $articlesRepository, CategoriesRepository $categoriesRepository): Response
+    #[Route('/articles', name: 'app_articles_index', methods: ['GET'])]
+    public function articles(ArticlesRepository $articlesRepository, CategoriesRepository $categoriesRepository): Response
     {
         // TODO: A supprimer après recupération du Role.
         $user_role = "vendeur";
