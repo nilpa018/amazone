@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Trader index{% endblock %}
+
+{% block body %}
+    <h1>Trader index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Password</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for trader in traders %}
+            <tr>
+                <td>{{ trader.id }}</td>
+                <td>{{ trader.name }}</td>
+                <td>{{ trader.lastname }}</td>
+                <td>{{ trader.email }}</td>
+                <td>{{ trader.phone }}</td>
+                <td>{{ trader.password }}</td>
+                <td>
+                    <a href="{{ path('app_trader_show', {'id': trader.id}) }}">show</a>
+                    <a href="{{ path('app_trader_edit', {'id': trader.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_trader_new') }}">Create new</a>
+{% endblock %}

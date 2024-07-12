@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panier
+{% endblock %}
+
+{% block body %}
+	<h1>Panier</h1>
+	<div class="card w-200">
+		<img src="https://placehold.co/400x200" class="card-img-top" alt="">
+		<div class="card-body">
+			<div class="d-flex justify-content-between">
+				<div>
+					<a href="{{ path('app_articles_show', {'id': articles.id}) }}">
+						<h5 class="card-title">{{ articles.name }}</h5>
+					</a>
+					<p class="card-text">{{ articles.description }}</p>
+				</div>
+				<div>
+					<h5>{{articles.price}}</h5>
+				</div>
+			</div>
+			<br>
+			<p>Catégorie</p>
+			<div class="d-flex justify-content-between">
+				<div>
+					<a href="">
+						<p>Vendeur</p>
+					</a>
+				</div>
+			</div>
+		</div>
+	{% endblock %}
